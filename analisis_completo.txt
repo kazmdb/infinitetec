@@ -1,0 +1,88 @@
+1. META DATOS
+- Título: "Infinit technology, productos de tecnología e informática"
+- Descripción: "Las mejores ofertas en productos de tecnología e informática"
+- URL: https://www.infinit.com.uy/?lang=es
+- Logo social: https://www.infinit.com.uy/artworks/artworks_infinit2023comuy/logo_social.png
+
+2. CATEGORÍAS DE PRODUCTOS
+1. Notebooks
+   - Link: https://www.infinit.com.uy/productos/productos.php?id=9&secc=categoriashome
+   - Título: "Toda la linea de Notebooks"
+
+2. PC Gamers AMD
+   - Link: https://www.infinit.com.uy/productos/productos.php?id=24&secc=categoriashome
+   - Título: "PC Gamers AMD"
+
+3. PC Gamers INTEL
+   - Link: https://www.infinit.com.uy/productos/productos.php?id=7&secc=categoriashome
+   - Título: "PC Gamers INTEL"
+
+4. Monitores Gamers
+   - Link: https://www.infinit.com.uy/productos/productos.php?id=25&secc=categoriashome
+   - Título: "Monitores Gamers"
+
+5. Sillas Gamers
+   - Link: https://www.infinit.com.uy/productos/productos.php?id=8&secc=categoriashome
+   - Título: "Sillas Gamers"
+
+6. Memorias RAM
+   - Link: https://www.infinit.com.uy/productos/productos.php?path=0.2427.2513&secc=productos
+
+7. Pasta Térmica
+   - Link: https://www.infinit.com.uy/productos/productos.php?path=0.2427.2625&secc=productos
+
+8. Procesadores
+   - Link: https://www.infinit.com.uy/productos/productos.php?path=0.2427.2444&secc=productos
+
+3. CONTACTO
+- WhatsApp: 59897821523
+- Link: https://wa.me/59897821523
+
+4. REDES SOCIALES
+- Instagram: https://www.instagram.com/infinit_technology/?igshid=1nnr5q7wm75k7
+- Facebook: https://www.facebook.com/Infinit.Technology/
+
+5. SECCIONES ADICIONALES
+- Destacados: https://www.infinit.com.uy/destacados/
+- Marcas: https://www.infinit.com.uy/representaciones/
+- Nuevos: https://www.infinit.com.uy/productos/productos.php?order=5&mo=2&secc=productos_nuevos
+
+6. ELEMENTOS VISUALES
+- Banner principal con slider
+- Secciones de productos por categoría
+- Botones de "Consultar" por WhatsApp
+- Newsletter por email
+
+========================================
+INFORMACIÓN NO DISPONIBLE EN DATOS.HTML
+========================================
+
+❌ Sección de software similar a CAM
+❌ Testimonios de clientes
+❌ Reviews de medios especializados
+❌ Información detallada de servicio técnico
+❌ Dirección física
+❌ Horarios de atención
+
+========================================
+ESTRATEGIA PROPUESTA PARA TRASPASO
+========================================
+
+FASE 1: Grid de categorías
+- Reemplazar 5 categorías actuales con 8 categorías de Infinit
+- Mantener diseño visual existente
+- Actualizar links a URLs de Infinit
+
+FASE 2: Sección CAM
+- Opción A: Eliminar sección (no hay equivalente en Infinit)
+- Opción B: Adaptar con información de servicio técnico de Infinit
+
+FASE 3: Testimonios
+- Opción A: Eliminar sección (no hay testimonios de clientes)
+- Opción B: Mantener reviews de medios (puede dar credibilidad)
+
+FASE 4: Footer y redes sociales
+- Actualizar WhatsApp: 59897821523
+- Actualizar Instagram: https://www.instagram.com/infinit_technology/
+- Actualizar Facebook: https://www.facebook.com/Infinit.Technology/
+- Eliminar redes sociales no disponibles (Twitter, YouTube, TikTok)

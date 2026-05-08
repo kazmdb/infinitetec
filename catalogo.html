@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Productos - Infinit Technology</title>
+    <meta name="description" content="Catálogo completo de productos de tecnología e informática">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* NZXT Official Colors */
+            --nzxt-indigo: #180024;
+            --nzxt-peridot: #DBE800;
+            --nzxt-light-gray: #D0D3D4;
+            --nzxt-roman-silver: #7C878E;
+
+            /* High Contrast Light Theme */
+            --bg-primary: #F9FAFB; /* bg-gray-50 */
+            --bg-secondary: #FFFFFF; /* white */
+            --bg-tertiary: #F3F4F6; /* bg-gray-100 */
+            --text-primary: #111827; /* text-gray-900 */
+            --text-secondary: #4B5563; /* text-gray-600 */
+            --text-tertiary: #6B7280; /* text-gray-500 */
+            --text-body: #374151; /* text-gray-700 para cuerpo */
+            --border-color: #E5E7EB; /* border-gray-200 */
+            --accent-color: #6B21A8; /* NZXT purple accent */
+            --accent-hover: #7C3AED; /* lighter purple for hover */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-body);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header */
+        header {
+            background-color: #05143f;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            max-height: 100%;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.2s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.9);
+            cursor: pointer;
+            padding: 0.75rem;
+            transition: color 0.2s ease;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-btn:hover {
+            color: white;
+        }
+
+        /* Catalog Bar */
+        .catalog-bar {
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .catalog-bar-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .results-count {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .results-count span {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .catalog-actions {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .mobile-filters-btn {
+            display: none;
+            background: none;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .mobile-filters-btn:hover {
+            border-color: var(--text-tertiary);
+            color: var(--text-primary);
+        }
+
+        .mobile-filters-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .sort-dropdown {
+            position: relative;
+        }
+
+        .sort-btn {
+            background: none;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .sort-btn:hover {
+            border-color: var(--text-tertiary);
+            color: var(--text-primary);
+        }
+
+        .sort-btn svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.2s ease;
+        }
+
+        .sort-btn:hover svg {
+            transform: rotate(180deg);
+        }
+
+        .sort-menu {
+            position: absolute;
+            top: calc(100% + 0.5rem);
+            right: 0;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            min-width: 200px;
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.2s ease;
+        }
+
+        .sort-dropdown:hover .sort-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .sort-option {
+            padding: 0.75rem 1rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sort-option:hover {
+            background-color: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+
+        .sort-option.active {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .sort-option.active::after {
+            content: '✓';
+            font-size: 0.75rem;
+        }
+
+        /* Catalog Layout */
+        .catalog-layout {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+        }
+
+        /* Filters Sidebar */
+        .filters-sidebar {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .filters-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .filters-header h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+        }
+
+        .clear-filters {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--accent-color);
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .clear-filters:hover {
+            color: var(--accent-hover);
+        }
+
+        .filter-section {
+            margin-bottom: 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .filter-section:last-child {
+            border-bottom: none;
+        }
+
+        .filter-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            padding: 1rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .filter-title:hover {
+            color: var(--accent-color);
+        }
+
+        .filter-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            color: var(--text-tertiary);
+            transition: all 0.2s ease;
+        }
+
+        .filter-toggle svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .filter-section.open .filter-toggle {
+            transform: rotate(180deg);
+        }
+
+        .filter-options {
+            display: none;
+            flex-direction: column;
+            gap: 0.75rem;
+            padding-bottom: 1rem;
+        }
+
+        .filter-section.open .filter-options {
+            display: flex;
+        }
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            cursor: pointer;
+        }
+
+        .filter-option input[type="checkbox"],
+        .filter-option input[type="radio"] {
+            width: 16px;
+            height: 16px;
+            accent-color: var(--accent-color);
+            cursor: pointer;
+        }
+
+        .filter-option label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .filter-option label:hover {
+            color: var(--text-primary);
+        }
+
+        .filter-count {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+        }
+
+        /* Mobile Filters Panel */
+        .mobile-filters-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-filters-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-filters-panel {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 85%;
+            max-width: 400px;
+            background-color: var(--bg-secondary);
+            z-index: 2001;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .mobile-filters-overlay.active .mobile-filters-panel {
+            transform: translateX(0);
+        }
+
+        .mobile-filters-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            background-color: var(--bg-secondary);
+            z-index: 10;
+        }
+
+        .mobile-filters-header h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .close-filters-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            color: var(--text-secondary);
+            transition: color 0.2s ease;
+        }
+
+        .close-filters-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .close-filters-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .mobile-filters-content {
+            padding: 1.5rem;
+        }
+
+        .mobile-filters-footer {
+            padding: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            position: sticky;
+            bottom: 0;
+            background-color: var(--bg-secondary);
+        }
+
+        .apply-filters-btn {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .apply-filters-btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Category Sections */
+        .category-section {
+            display: none;
+        }
+
+        .category-section.active {
+            display: block;
+        }
+
+        .category-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .category-header h2 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .category-header p {
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        .category-header .product-count {
+            display: block;
+            color: var(--text-tertiary);
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .product-card {
+            background-color: transparent;
+            border: none;
+            border-radius: 0;
+            overflow: visible;
+            transition: none;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            background-color: #F9FAFB;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 1rem;
+        }
+
+        .product-image svg {
+            width: 100px;
+            height: 100px;
+            color: var(--text-tertiary);
+        }
+
+        .product-info {
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-category {
+            display: none;
+        }
+
+        .product-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+            line-height: 1.4;
+            text-align: left;
+        }
+
+        .product-brand {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .product-price {
+            display: block;
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-description {
+            display: block;
+            font-size: 0.875rem;
+            color: var(--text-tertiary);
+            line-height: 1.4;
+            margin-bottom: 0;
+        }
+
+        .product-actions {
+            display: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .catalog-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .filters-sidebar {
+                display: none;
+            }
+
+            .mobile-filters-btn {
+                display: flex;
+            }
+
+            .mobile-filters-overlay {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1.5rem;
+            }
+
+            .catalog-bar-container {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: stretch;
+            }
+
+            .catalog-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .product-image {
+                height: 200px;
+            }
+
+            .product-title {
+                font-size: 0.875rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-image {
+                height: 250px;
+            }
+
+            .product-title {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/infinitlogo.jpg" alt="Infinit Technology Logo">
+                Infinit<span>Technology</span>
+            </a>
+            <nav>
+                <a href="index.html">Inicio</a>
+                <a href="catalogo.html">Catálogo</a>
+                <a href="#categorias">Categorías</a>
+                <a href="#destacados">Destacados</a>
+            </nav>
+            <div class="header-actions">
+                <button class="icon-btn" aria-label="Buscar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.3-4.3"></path>
+                    </svg>
+                </button>
+                <button class="icon-btn" aria-label="Usuario">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </button>
+                <button class="icon-btn" aria-label="Carrito">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="8" cy="21" r="1"></circle>
+                        <circle cx="19" cy="21" r="1"></circle>
+                        <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Catalog Bar -->
+    <div class="catalog-bar">
+        <div class="catalog-bar-container">
+            <div class="results-count">
+                Mostrando <span>12</span> productos
+            </div>
+            <div class="catalog-actions">
+                <button class="mobile-filters-btn" id="mobileFiltersBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="4" x2="20" y1="12" y2="12"></line>
+                        <line x1="4" x2="20" y1="6" y2="6"></line>
+                        <line x1="4" x2="20" y1="18" y2="18"></line>
+                    </svg>
+                    Filtros
+                </button>
+                <div class="sort-dropdown">
+                    <button class="sort-btn">
+                        Ordenar por
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m6 9 6 6 6-6"></path>
+                        </svg>
+                    </button>
+                    <div class="sort-menu">
+                        <div class="sort-option active">Relevancia</div>
+                        <div class="sort-option">Precio: Menor a Mayor</div>
+                        <div class="sort-option">Precio: Mayor a Menor</div>
+                        <div class="sort-option">Nombre: A-Z</div>
+                        <div class="sort-option">Nombre: Z-A</div>
+                        <div class="sort-option">Más recientes</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Catalog Layout -->
+    <div class="catalog-layout">
+        <!-- Filters Sidebar -->
+        <aside class="filters-sidebar">
+            <div class="filters-header">
+                <h3>Filtros</h3>
+                <button class="clear-filters">Limpiar todo</button>
+            </div>
+
+            <div class="filter-section open">
+                <div class="filter-title">
+                    Categorías
+                    <button class="filter-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m6 9 6 6 6-6"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="filter-options">
+                    <div class="filter-option">
+                        <input type="radio" name="category" id="category-gamer" value="gamer" checked>
+                        <label for="category-gamer">GAMER</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" name="category" id="category-hardware" value="hardware">
+                        <label for="category-hardware">HARDWARE</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" name="category" id="category-pc" value="pc">
+                        <label for="category-pc">PC</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" name="category" id="category-perifericos" value="perifericos">
+                        <label for="category-perifericos">PERIFÉRICOS</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" name="category" id="category-imagen-audio" value="imagen-audio">
+                        <label for="category-imagen-audio">IMAGEN/AUDIO</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" name="category" id="category-impresion" value="impresion">
+                        <label for="category-impresion">IMPRESIÓN</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" name="category" id="category-conectividad" value="conectividad">
+                        <label for="category-conectividad">CONECTIVIDAD</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" name="category" id="category-seguridad" value="seguridad">
+                        <label for="category-seguridad">SEGURIDAD</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" name="category" id="category-energia" value="energia">
+                        <label for="category-energia">ENERGÍA</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" name="category" id="category-movil" value="movil">
+                        <label for="category-movil">MÓVIL</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" name="category" id="category-equipaje" value="equipaje">
+                        <label for="category-equipaje">EQUIPAJE</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" name="category" id="category-hogar" value="hogar">
+                        <label for="category-hogar">HOGAR</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <div class="filter-title">
+                    Delivery Speed
+                    <button class="filter-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m6 9 6 6 6-6"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="filter-options">
+                    <div class="filter-option">
+                        <input type="checkbox" id="delivery-1">
+                        <label for="delivery-1">Inmediato</label>
+                        <span class="filter-count">(5)</span>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="delivery-2">
+                        <label for="delivery-2">24-48 horas</label>
+                        <span class="filter-count">(4)</span>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="delivery-3">
+                        <label for="delivery-3">3-5 días</label>
+                        <span class="filter-count">(3)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <div class="filter-title">
+                    Color
+                    <button class="filter-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m6 9 6 6 6-6"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="filter-options">
+                    <div class="filter-option">
+                        <input type="checkbox" id="color-black">
+                        <label for="color-black">Negro</label>
+                        <span class="filter-count">(6)</span>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="color-white">
+                        <label for="color-white">Blanco</label>
+                        <span class="filter-count">(3)</span>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="color-gray">
+                        <label for="color-gray">Gris</label>
+                        <span class="filter-count">(2)</span>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="color-red">
+                        <label for="color-red">Rojo</label>
+                        <span class="filter-count">(1)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <div class="filter-title">
+                    Serie
+                    <button class="filter-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m6 9 6 6 6-6"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="filter-options">
+                    <div class="filter-option">
+                        <input type="checkbox" id="series-rog">
+                        <label for="series-rog">ROG</label>
+                        <span class="filter-count">(3)</span>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="series-legion">
+                        <label for="series-legion">Legion</label>
+                        <span class="filter-count">(2)</span>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="series-victus">
+                        <label for="series-victus">Victus</label>
+                        <span class="filter-count">(2)</span>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="series-katana">
+                        <label for="series-katana">Katana</label>
+                        <span class="filter-count">(2)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <div class="filter-title">
+                    RGB
+                    <button class="filter-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m6 9 6 6 6-6"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="filter-options">
+                    <div class="filter-option">
+                        <input type="checkbox" id="rgb-yes">
+                        <label for="rgb-yes">Con RGB</label>
+                        <span class="filter-count">(8)</span>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="rgb-no">
+                        <label for="rgb-no">Sin RGB</label>
+                        <span class="filter-count">(4)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <div class="filter-title">
+                    Distribución de caja
+                    <button class="filter-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m6 9 6 6 6-6"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="filter-options">
+                    <div class="filter-option">
+                        <input type="checkbox" id="box-full">
+                        <label for="box-full">Caja completa</label>
+                        <span class="filter-count">(7)</span>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="box-mini">
+                        <label for="box-mini">Mini ITX</label>
+                        <span class="filter-count">(3)</span>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="box-mid">
+                        <label for="box-mid">Mid Tower</label>
+                        <span class="filter-count">(2)</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Products Grid -->
+        <main>
+            <!-- GAMER Section -->
+            <div class="category-section active" id="gamer">
+                <div class="category-header">
+                    <h2>GAMER</h2>
+                    <p>Equipamiento para gaming profesional</p>
+                    <span class="product-count">Cargando productos...</span>
+                </div>
+                <div class="products-grid">
+                    <!-- Los productos se cargarán desde el CSV -->
+                </div>
+            </div>
+
+            <!-- HARDWARE Section -->
+            <div class="category-section" id="hardware">
+                <div class="category-header">
+                    <h2>HARDWARE</h2>
+                    <p>Componentes de alto rendimiento</p>
+                    <span class="product-count">Cargando productos...</span>
+                </div>
+                <div class="products-grid">
+                    <!-- Los productos se cargarán desde el CSV -->
+                </div>
+            </div>
+
+            <!-- PC Section -->
+            <div class="category-section" id="pc">
+                <div class="category-header">
+                    <h2>PC</h2>
+                    <p>Computadoras de escritorio y portátiles</p>
+                    <span class="product-count">Cargando productos...</span>
+                </div>
+                <div class="products-grid">
+                    <!-- Los productos se cargarán desde el CSV -->
+                </div>
+            </div>
+
+            <!-- PERIFÉRICOS Section -->
+            <div class="category-section" id="perifericos">
+                <div class="category-header">
+                    <h2>PERIFÉRICOS</h2>
+                    <p>Teclados, ratones y accesorios</p>
+                    <span class="product-count">Cargando productos...</span>
+                </div>
+                <div class="products-grid">
+                    <!-- Los productos se cargarán desde el CSV -->
+                </div>
+            </div>
+
+            <!-- IMAGEN/AUDIO Section -->
+            <div class="category-section" id="imagen-audio">
+                <div class="category-header">
+                    <h2>IMAGEN/AUDIO</h2>
+                    <p>Monitores, cámaras y sonido</p>
+                    <span class="product-count">Cargando productos...</span>
+                </div>
+                <div class="products-grid">
+                    <!-- Los productos se cargarán desde el CSV -->
+                </div>
+            </div>
+
+            <!-- IMPRESIÓN Section -->
+            <div class="category-section" id="impresion">
+                <div class="category-header">
+                    <h2>IMPRESIÓN</h2>
+                    <p>Impresoras y consumibles</p>
+                    <span class="product-count">Cargando productos...</span>
+                </div>
+                <div class="products-grid">
+                    <!-- Los productos se cargarán desde el CSV -->
+                </div>
+            </div>
+
+            <!-- CONECTIVIDAD Section -->
+            <div class="category-section" id="conectividad">
+                <div class="category-header">
+                    <h2>CONECTIVIDAD</h2>
+                    <p>Redes y comunicación</p>
+                    <span class="product-count">Cargando productos...</span>
+                </div>
+                <div class="products-grid">
+                    <!-- Los productos se cargarán desde el CSV -->
+                </div>
+            </div>
+
+            <!-- SEGURIDAD Section -->
+            <div class="category-section" id="seguridad">
+                <div class="category-header">
+                    <h2>SEGURIDAD</h2>
+                    <p>Protección y vigilancia</p>
+                    <span class="product-count">Cargando productos...</span>
+                </div>
+                <div class="products-grid">
+                    <!-- Los productos se cargarán desde el CSV -->
+                </div>
+            </div>
+
+            <!-- ENERGÍA Section -->
+            <div class="category-section" id="energia">
+                <div class="category-header">
+                    <h2>ENERGÍA</h2>
+                    <p>Fuentes de alimentación y baterías</p>
+                    <span class="product-count">Cargando productos...</span>
+                </div>
+                <div class="products-grid">
+                    <!-- Los productos se cargarán desde el CSV -->
+                </div>
+            </div>
+
+            <!-- MÓVIL Section -->
+            <div class="category-section" id="movil">
+                <div class="category-header">
+                    <h2>MÓVIL</h2>
+                    <p>Smartphones y tablets</p>
+                    <span class="product-count">Cargando productos...</span>
+                </div>
+                <div class="products-grid">
+                    <!-- Los productos se cargarán desde el CSV -->
+                </div>
+            </div>
+
+            <!-- EQUIPAJE Section -->
+            <div class="category-section" id="equipaje">
+                <div class="category-header">
+                    <h2>EQUIPAJE</h2>
+                    <p>Mochilas y fundas</p>
+                    <span class="product-count">Cargando productos...</span>
+                </div>
+                <div class="products-grid">
+                    <!-- Los productos se cargarán desde el CSV -->
+                </div>
+            </div>
+
+            <!-- HOGAR Section -->
+            <div class="category-section" id="hogar">
+                <div class="category-header">
+                    <h2>HOGAR</h2>
+                    <p>Tecnología para el hogar</p>
+                    <span class="product-count">Cargando productos...</span>
+                </div>
+                <div class="products-grid">
+                    <!-- Los productos se cargarán desde el CSV -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Mobile Filters Panel -->
+    <div class="mobile-filters-overlay" id="mobileFiltersOverlay">
+        <div class="mobile-filters-panel">
+            <div class="mobile-filters-header">
+                <h3>Filtros</h3>
+                <button class="close-filters-btn" id="closeFiltersBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 6 6 18"></path>
+                        <path d="m6 6 12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="mobile-filters-content">
+                <div class="filter-section open">
+                    <div class="filter-title">
+                        Categorías
+                        <button class="filter-toggle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m6 9 6 6 6-6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="filter-options">
+                        <div class="filter-option">
+                            <input type="radio" name="mobile-category" id="mobile-category-gamer" value="gamer" checked>
+                            <label for="mobile-category-gamer">GAMER</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="radio" name="mobile-category" id="mobile-category-hardware" value="hardware">
+                            <label for="mobile-category-hardware">HARDWARE</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="radio" name="mobile-category" id="mobile-category-pc" value="pc">
+                            <label for="mobile-category-pc">PC</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="radio" name="mobile-category" id="mobile-category-perifericos" value="perifericos">
+                            <label for="mobile-category-perifericos">PERIFÉRICOS</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="radio" name="mobile-category" id="mobile-category-imagen-audio" value="imagen-audio">
+                            <label for="mobile-category-imagen-audio">IMAGEN/AUDIO</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="radio" name="mobile-category" id="mobile-category-impresion" value="impresion">
+                            <label for="mobile-category-impresion">IMPRESIÓN</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="radio" name="mobile-category" id="mobile-category-conectividad" value="conectividad">
+                            <label for="mobile-category-conectividad">CONECTIVIDAD</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="radio" name="mobile-category" id="mobile-category-seguridad" value="seguridad">
+                            <label for="mobile-category-seguridad">SEGURIDAD</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="radio" name="mobile-category" id="mobile-category-energia" value="energia">
+                            <label for="mobile-category-energia">ENERGÍA</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="radio" name="mobile-category" id="mobile-category-movil" value="movil">
+                            <label for="mobile-category-movil">MÓVIL</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="radio" name="mobile-category" id="mobile-category-equipaje" value="equipaje">
+                            <label for="mobile-category-equipaje">EQUIPAJE</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="radio" name="mobile-category" id="mobile-category-hogar" value="hogar">
+                            <label for="mobile-category-hogar">HOGAR</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <div class="filter-title">
+                        Delivery Speed
+                        <button class="filter-toggle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m6 9 6 6 6-6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="filter-options">
+                        <div class="filter-option">
+                            <input type="checkbox" id="mobile-delivery-1">
+                            <label for="mobile-delivery-1">Inmediato</label>
+                            <span class="filter-count">(5)</span>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="mobile-delivery-2">
+                            <label for="mobile-delivery-2">24-48 horas</label>
+                            <span class="filter-count">(4)</span>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="mobile-delivery-3">
+                            <label for="mobile-delivery-3">3-5 días</label>
+                            <span class="filter-count">(3)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <div class="filter-title">
+                        Color
+                        <button class="filter-toggle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m6 9 6 6 6-6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="filter-options">
+                        <div class="filter-option">
+                            <input type="checkbox" id="mobile-color-black">
+                            <label for="mobile-color-black">Negro</label>
+                            <span class="filter-count">(6)</span>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="mobile-color-white">
+                            <label for="mobile-color-white">Blanco</label>
+                            <span class="filter-count">(3)</span>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="mobile-color-gray">
+                            <label for="mobile-color-gray">Gris</label>
+                            <span class="filter-count">(2)</span>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="mobile-color-red">
+                            <label for="mobile-color-red">Rojo</label>
+                            <span class="filter-count">(1)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <div class="filter-title">
+                        Serie
+                        <button class="filter-toggle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m6 9 6 6 6-6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="filter-options">
+                        <div class="filter-option">
+                            <input type="checkbox" id="mobile-series-rog">
+                            <label for="mobile-series-rog">ROG</label>
+                            <span class="filter-count">(3)</span>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="mobile-series-legion">
+                            <label for="mobile-series-legion">Legion</label>
+                            <span class="filter-count">(2)</span>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="mobile-series-victus">
+                            <label for="mobile-series-victus">Victus</label>
+                            <span class="filter-count">(2)</span>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="mobile-series-katana">
+                            <label for="mobile-series-katana">Katana</label>
+                            <span class="filter-count">(2)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <div class="filter-title">
+                        RGB
+                        <button class="filter-toggle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m6 9 6 6 6-6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="filter-options">
+                        <div class="filter-option">
+                            <input type="checkbox" id="mobile-rgb-yes">
+                            <label for="mobile-rgb-yes">Con RGB</label>
+                            <span class="filter-count">(8)</span>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="mobile-rgb-no">
+                            <label for="mobile-rgb-no">Sin RGB</label>
+                            <span class="filter-count">(4)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <div class="filter-title">
+                        Distribución de caja
+                        <button class="filter-toggle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m6 9 6 6 6-6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="filter-options">
+                        <div class="filter-option">
+                            <input type="checkbox" id="mobile-box-full">
+                            <label for="mobile-box-full">Caja completa</label>
+                            <span class="filter-count">(7)</span>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="mobile-box-mini">
+                            <label for="mobile-box-mini">Mini ITX</label>
+                            <span class="filter-count">(3)</span>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="mobile-box-mid">
+                            <label for="mobile-box-mid">Mid Tower</label>
+                            <span class="filter-count">(2)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-filters-footer">
+                <button class="apply-filters-btn" id="applyFiltersBtn">Aplicar filtros</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/catalog-loader.js"></script>
+
+    <script>
+        // Función para mostrar una categoría específica
+        async function showCategory(categoryId) {
+            console.log(`Mostrando categoría: ${categoryId}`);
+
+            // Hide all category sections
+            document.querySelectorAll('.category-section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show selected category section
+            const targetSection = document.getElementById(categoryId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+                console.log(`Sección ${categoryId} activada`);
+            } else {
+                console.error(`No se encontró la sección para categoría: ${categoryId}`);
+            }
+
+            // Update desktop radio button selection
+            const targetRadio = document.querySelector(`input[name="category"][value="${categoryId}"]`);
+            if (targetRadio) {
+                targetRadio.checked = true;
+            }
+
+            // Update mobile radio button selection
+            const targetMobileRadio = document.querySelector(`input[name="mobile-category"][value="${categoryId}"]`);
+            if (targetMobileRadio) {
+                targetMobileRadio.checked = true;
+            }
+
+            // Cargar productos de la categoría seleccionada
+            if (typeof initializeCategory === 'function') {
+                await initializeCategory(categoryId);
+            }
+
+            console.log(`Categoría ${categoryId} inicializada`);
+        }
+
+        // Initialize event listeners when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            // Obtener categoría de la URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const category = urlParams.get('categoria');
+
+            if (category) {
+                showCategory(category);
+            } else {
+                // Default to 'gamer' category if no parameter
+                showCategory('gamer');
+            }
+
+            // Category radio buttons in filters
+            document.querySelectorAll('input[name="category"]').forEach(radio => {
+                radio.addEventListener('change', () => {
+                    const category = radio.value;
+                    showCategory(category);
+
+                    // Update URL without reloading
+                    const url = new URL(window.location);
+                    url.searchParams.set('categoria', category);
+                    window.history.pushState({}, '', url);
+                });
+            });
+
+            // Category radio buttons in mobile filters
+            document.querySelectorAll('input[name="mobile-category"]').forEach(radio => {
+                radio.addEventListener('change', () => {
+                    const category = radio.value;
+                    showCategory(category);
+
+                    // Update URL without reloading
+                    const url = new URL(window.location);
+                    url.searchParams.set('categoria', category);
+                    window.history.pushState({}, '', url);
+                });
+            });
+
+            // Accordion functionality for filters
+            document.querySelectorAll('.filter-title').forEach(title => {
+                title.addEventListener('click', () => {
+                    const section = title.parentElement;
+                    section.classList.toggle('open');
+                });
+            });
+
+            // Clear filters functionality
+            document.querySelector('.clear-filters').addEventListener('click', () => {
+                document.querySelectorAll('.filter-option input[type="checkbox"]').forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+                // Reset to default category
+                showCategory('gamer');
+            });
+
+            // Mobile filters functionality
+            const mobileFiltersBtn = document.getElementById('mobileFiltersBtn');
+            const closeFiltersBtn = document.getElementById('closeFiltersBtn');
+            const applyFiltersBtn = document.getElementById('applyFiltersBtn');
+            const mobileFiltersOverlay = document.getElementById('mobileFiltersOverlay');
+
+            mobileFiltersBtn.addEventListener('click', () => {
+                mobileFiltersOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+
+            closeFiltersBtn.addEventListener('click', () => {
+                mobileFiltersOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+
+            applyFiltersBtn.addEventListener('click', () => {
+                mobileFiltersOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+
+            mobileFiltersOverlay.addEventListener('click', (e) => {
+                if (e.target === mobileFiltersOverlay) {
+                    mobileFiltersOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
